@@ -9,9 +9,23 @@ import {
     TableRow,
     Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Projects() {
-    const projects = ["Project One", "Project Two"];
+    const navigate = useNavigate();
+    const projects = ["Customer Center App", "Analytics App"];
+
+    const onMouseOverRow = (e) => {
+        e.target.parentElement.style.backgroundColor = "#F4F4F4";
+    };
+
+    const onMouseOutRow = (e) => {
+        e.target.parentElement.style.backgroundColor = "";
+    };
+
+    const openProject = (projectName) => {
+        navigate(`/projects/${projectName}`);
+    };
 
     return (
         <Container>
@@ -30,7 +44,12 @@ export default function Projects() {
                     </TableHead>
                     <TableBody>
                         {projects.map((name, index) => (
-                            <TableRow onMouseOver={(e) => console.log(e)}>
+                            <TableRow
+                                sx={{ cursor: "pointer" }}
+                                onMouseOver={onMouseOverRow}
+                                onMouseOut={onMouseOutRow}
+                                onClick={() => openProject(name)}
+                            >
                                 <TableCell>{index + 1}</TableCell>
                                 <TableCell>{name}</TableCell>
                             </TableRow>

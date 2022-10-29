@@ -4,7 +4,7 @@ import { Box, Container } from "@mui/system";
 export default function NavLayout({ children }) {
     return (
         <div>
-            <AppBar position="static" sx={{mb: "20px"}}>
+            <AppBar position="static" sx={{ mb: "20px" }}>
                 <Container>
                     <Toolbar disableGutters>
                         <Typography
@@ -39,9 +39,23 @@ export default function NavLayout({ children }) {
                             }}
                         >
                             <Button
+                                href="/projects"
                                 sx={{ color: "white", my: 2, display: "block" }}
                             >
                                 Home
+                            </Button>
+                        </Box>
+                        <Box
+                            sx={{
+                                flexGrow: 0,
+                                display: { xs: "flex", md: "flex" },
+                            }}
+                        >
+                            <Button
+                                href="/login"
+                                sx={{ color: "white", my: 2, display: "block" }}
+                            >
+                                Logout
                             </Button>
                         </Box>
                     </Toolbar>
