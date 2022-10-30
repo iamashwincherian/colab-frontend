@@ -1,7 +1,7 @@
 {
   "name": "collab-frontend",
   "proxy": "http://localhost:4000/api",
-  "homepage": "https://colab-pm-app.herokuapp.com/",
+  "homepage": "https://colab-pm-app.herokuapp.com",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
