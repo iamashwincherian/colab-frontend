@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/colab-frontend/static/css/main.a3ccb6c6.css",
-    "main.js": "/colab-frontend/static/js/main.0beb9593.js",
+    "main.js": "/colab-frontend/static/js/main.c817ec66.js",
     "static/media/google-logo.jpg": "/colab-frontend/static/media/google-logo.3ecb0cbc4741472dc873.jpg",
     "index.html": "/colab-frontend/index.html",
     "main.a3ccb6c6.css.map": "/colab-frontend/static/css/main.a3ccb6c6.css.map",
-    "main.0beb9593.js.map": "/colab-frontend/static/js/main.0beb9593.js.map"
+    "main.c817ec66.js.map": "/colab-frontend/static/js/main.c817ec66.js.map"
   },
   "entrypoints": [
     "static/css/main.a3ccb6c6.css",
-    "static/js/main.0beb9593.js"
+    "static/js/main.c817ec66.js"
   ]
 }
