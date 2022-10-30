@@ -9,31 +9,31 @@ import NavLayout from "./layouts/NavLayout";
 import CreateOrganisation from "../pages/create-organisation";
 
 export default function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/create-org" element={<CreateOrganisation />} />
-                <Route
-                    path="/projects"
-                    element={
-                        <NavLayout>
-                            <Projects />
-                        </NavLayout>
-                    }
-                />
-                <Route
-                    path="/projects/:projectName"
-                    element={
-                        <NavLayout>
-                            <ProjectItem />
-                        </NavLayout>
-                    }
-                />
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/create-org" element={<CreateOrganisation />} />
+        <Route
+          path="/projects"
+          element={
+            <NavLayout>
+              <Projects />
+            </NavLayout>
+          }
+        />
+        <Route
+          path="/projects/:projectName"
+          element={
+            <NavLayout>
+              <ProjectItem />
+            </NavLayout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
