@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../components/inputFields/primaryInput";
 import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
-import GoogleLogin from "react-google-login";
+import GoogleLogin from "@leecheuk/react-google-login";
 import GoogleLogo from "../../assets/images/google-logo.jpg";
 import ApiClient from "../../ApiClient";
 
