@@ -24,7 +24,7 @@ const GOOGLE_CLIENT_ID =
 export default function Login() {
   const navigate = useNavigate();
   const [disabledLogin, setDisabledLogin] = useState(false);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginSuccessMessage, setLoginSuccessMessage] = useState(null);
@@ -44,12 +44,12 @@ export default function Login() {
     setDisabledLogin(true);
 
     try {
-      const res = await ApiClient.post("/auth/login", {
+      await ApiClient.post("/auth/login", {
         email,
         password,
       });
 
-      setUser(res.data?.data.user);
+      // setUser(res.data?.data.user);
       setLoginFailedMessage(null);
       setLoginSuccessMessage("Successfully Logged In!");
       setTimeout(() => {
@@ -79,7 +79,7 @@ export default function Login() {
         const user = res.data?.data.user;
         if (!user) return;
 
-        setUser(user);
+        // setUser(user);
         setLoginSuccessMessage(`Welcome back ${user.name.split(" ")[0]}`);
         setTimeout(() => {
           navigate("/projects");
@@ -107,7 +107,7 @@ export default function Login() {
             borderRadius: "4px",
             cursor: "pointer",
             boxShadow:
-              "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+              "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.1),0px 1px 5px 0px rgba(0,0,0,0.12)",
           }}
         >
           <img
