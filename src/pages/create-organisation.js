@@ -110,7 +110,7 @@ export default function CreateOrganisation() {
         onClose={() => setLoginSuccessMessage(null)}
       >
         <Alert severity="success" sx={{ width: "100%" }}>
-          Welcome back!
+          Welcome back User!
         </Alert>
       </Snackbar>
       <Snackbar
