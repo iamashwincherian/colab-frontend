@@ -21,7 +21,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "build/*"
-          # target: "~/colab/colab-app"
           target: "/var/www/colab"
-          rm: true
-          strip_components: 1
+          # rm: true
+          # strip_components: 1
