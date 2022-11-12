@@ -1,0 +1,27 @@
+name: Deploy to Digitalocean Droplet
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - 'release'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build
+        run: |
+          echo building...
+          npm install
+          npm run build
+#       - name: copy file via ssh password
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           username: ${{ secrets.SSH_USER }}
+#           key: ${{ secrets.SSH_KEY }}
+#           source: "tests/a.txt,tests/b.txt"
+#           target: "test"
+#           script: |
+#             whoami
+#             ls -al
