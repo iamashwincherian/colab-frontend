@@ -92,6 +92,7 @@ export default function CreateOrganisation() {
                       color="primary"
                       type="submit"
                       fullWidth
+                      onClick={() => setLoginSuccessMessage(true)}
                     >
                       <span style={{ color: "white" }}>Continue</span>
                     </Button>
