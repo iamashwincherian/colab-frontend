@@ -20,5 +20,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "build"
-          target: "~/"
+          source: "build/*"
+          target: "/var/www/colab"
