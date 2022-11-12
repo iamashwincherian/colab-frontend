@@ -70,22 +70,20 @@ export default function Login() {
       scope="profile email"
       prompt="consent"
       onSuccess={async (credentails) => {
-        console.log("credentails", Object.keys(credentails));
-        const user = await fetch(
+        const res = await ApiClient.get(
           "/auth/google/callback?" +
             new URLSearchParams({
               token: credentails?.accessToken,
             })
-        ).then((res) => res.json());
+        );
+        const user = res.data?.data.user;
         if (!user) return;
 
-        setUser(user.data.user);
-        setLoginSuccessMessage(
-          `Welcome back ${user.data.user.name.split(" ")[0]}`
-        );
+        setUser(user);
+        setLoginSuccessMessage(`Welcome back ${user.name.split(" ")[0]}`);
         setTimeout(() => {
           navigate("/projects");
-        }, 1000);
+        }, 1000 * 0.5);
       }}
       onFailure={(err) => console.log("google login failed", err)}
       cookiePolicy={"single_host_origin"}
