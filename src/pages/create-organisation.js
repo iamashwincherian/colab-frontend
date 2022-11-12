@@ -16,12 +16,12 @@ import { useState } from "react";
 
 export default function CreateOrganisation() {
   const navigate = useNavigate();
-  const [loginSuccessMessage, setLoginSuccessMessage] = useState(null);
+  const [loginSuccessMessage, setLoginSuccessMessage] = useState(false);
   const [loginFailedMessage, setLoginFailedMessage] = useState(null);
 
   const submitForm = async (e) => {
     e.preventDefault();
-
+    setLoginSuccessMessage(true);
     navigate("/projects");
   };
 
@@ -92,7 +92,6 @@ export default function CreateOrganisation() {
                       color="primary"
                       type="submit"
                       fullWidth
-                      onClick={() => setLoginSuccessMessage(true)}
                     >
                       <span style={{ color: "white" }}>Continue</span>
                     </Button>
@@ -105,10 +104,10 @@ export default function CreateOrganisation() {
       </Container>
 
       <Snackbar
-        open={loginSuccessMessage && true}
+        open={loginSuccessMessage}
         autoHideDuration={2000}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        onClose={() => setLoginSuccessMessage(null)}
+        onClose={() => setLoginSuccessMessage(false)}
       >
         <Alert severity="success" sx={{ width: "100%" }}>
           Welcome back User!
