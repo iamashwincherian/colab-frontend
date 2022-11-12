@@ -24,7 +24,7 @@ const GOOGLE_CLIENT_ID =
 export default function Login() {
   const navigate = useNavigate();
   const [disabledLogin, setDisabledLogin] = useState(false);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginSuccessMessage, setLoginSuccessMessage] = useState(null);
@@ -44,12 +44,12 @@ export default function Login() {
     setDisabledLogin(true);
 
     try {
-      const res = await ApiClient.post("/auth/login", {
+      await ApiClient.post("/auth/login", {
         email,
         password,
       });
 
-      setUser(res.data?.data.user);
+      // setUser(res.data?.data.user);
       setLoginFailedMessage(null);
       setLoginSuccessMessage("Successfully Logged In!");
       setTimeout(() => {
@@ -70,22 +70,20 @@ export default function Login() {
       scope="profile email"
       prompt="consent"
       onSuccess={async (credentails) => {
-        console.log("credentails", Object.keys(credentails));
-        const user = await fetch(
+        const res = await ApiClient.get(
           "/auth/google/callback?" +
             new URLSearchParams({
               token: credentails?.accessToken,
             })
-        ).then((res) => res.json());
+        );
+        const user = res.data?.data.user;
         if (!user) return;
 
-        setUser(user.data.user);
-        setLoginSuccessMessage(
-          `Welcome back ${user.data.user.name.split(" ")[0]}`
-        );
+        // setUser(user);
+        setLoginSuccessMessage(`Welcome back ${user.name.split(" ")[0]}`);
         setTimeout(() => {
           navigate("/projects");
-        }, 1000);
+        }, 1000 * 0.5);
       }}
       onFailure={(err) => console.log("google login failed", err)}
       cookiePolicy={"single_host_origin"}
@@ -109,7 +107,7 @@ export default function Login() {
             borderRadius: "4px",
             cursor: "pointer",
             boxShadow:
-              "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+              "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.1),0px 1px 5px 0px rgba(0,0,0,0.12)",
           }}
         >
           <img

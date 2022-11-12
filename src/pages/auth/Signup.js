@@ -17,7 +17,6 @@ import ApiClient from "../../ApiClient";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,13 +28,12 @@ export default function Signup() {
 
     try {
       const username = email.split("@")[0];
-      const res = await ApiClient.post("/auth/signup", {
+      await ApiClient.post("/auth/signup", {
         name,
         username,
         email,
         password,
       });
-      setUser(res.data?.data.user);
       setSignupFailedMessage(null);
       setSignupSuccessMessage("Successfully Signed Up!");
       setTimeout(() => {
