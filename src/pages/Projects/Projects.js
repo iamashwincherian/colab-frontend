@@ -31,7 +31,7 @@ export default function Projects() {
     <Container>
       <Typography variant="h6">Projects</Typography>
       <Button variant="contained" color="primary" sx={{ color: "white" }}>
-        Create new
+        Create
       </Button>
 
       <TableContainer sx={{ my: "10px" }}>
